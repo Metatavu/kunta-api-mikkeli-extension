@@ -1,0 +1,5 @@
+{% spaceless %}
+{% if service.descriptions|localizedValue(lang, 'Description') %}
+{{ service.descriptions|localizedValue(lang, 'Description')|nl2p|raw }}
+{% endif %}
+{% endspaceless %}

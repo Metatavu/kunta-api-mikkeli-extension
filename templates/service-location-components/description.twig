@@ -1,0 +1,3 @@
+{% if serviceLocationChannel.descriptions|localizedValue(lang, 'Description') %}
+{{ serviceLocationChannel.descriptions|localizedValue(lang, 'Description')|nl2p|raw }}
+{% endif %}
