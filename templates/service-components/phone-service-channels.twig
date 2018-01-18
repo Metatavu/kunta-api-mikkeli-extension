@@ -1,0 +1,24 @@
+{% if phoneChannels %}
+<h3>Puhelinnumerot</h3>
+{% for phoneChannel in phoneChannels %}
+<h4>{{ phoneChannel.names|localizedValue(lang) }}</h4>
+{% for description in phoneChannel.descriptions %}
+{% endfor %}
+{{ phoneChannel.descriptions|localizedValue(lang, 'Description')|nl2p|raw }}
+{% if phoneChannel.phoneNumbers %}
+{% for number in phoneChannel.phoneNumbers %}
+<p>{{ number|phoneNumber(true) }}<br/>
+<small>
+{% if number.serviceChargeType == 'Charged' %}
+  Paikallisverkkomaksu (pvm), matkapuhelinmaksu (mpm), ulkomaanpuhelumaksu<br/>
+{% endif %}
+{% if number.chargeDescription %}
+  {{ number.chargeDescription }}
+{% endif %}
+</small></p>
+{% endfor %}
+{% endif %}
+{% set serviceHours = phoneChannel.serviceHours %}
+{% include 'service-components/servicehours-fragment.twig' %}
+{% endfor %}  
+{% endif %}
