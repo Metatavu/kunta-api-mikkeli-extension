@@ -1,5 +1,5 @@
 {% if serviceLocationChannel.phoneNumbers %}
 {% for number in serviceLocationChannel.phoneNumbers %}
-<p>{{ number|phoneNumber(true) }}</p>
+<div class="phone-number">{{ number|phoneNumber(true) }}</div>
 {% endfor %}
 {% endif %}
