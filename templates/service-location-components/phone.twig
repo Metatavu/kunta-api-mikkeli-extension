@@ -1,6 +1,6 @@
 {% if serviceLocationChannel.phoneNumbers %}
 {% for number in serviceLocationChannel.phoneNumbers %}
-{% if number.additionalInformation %}<small>{{ number.additionalInformation }}</small>{% endif %}
+{% if number.additionalInformation %}<h4>{{ number.additionalInformation }}</h4>{% endif %}
 <div class="phone-number">{{ number|phoneNumber(true) }}</div>
 {% endfor %}
 {% endif %}
