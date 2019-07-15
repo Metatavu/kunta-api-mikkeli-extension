@@ -1,8 +1,6 @@
 {% spaceless %}
 {% if service.descriptions|localizedValue(lang, 'ServiceUserInstruction') %}
 <h2>Toimintaohjeet</h2>
-{% for description in service.descriptions %}
-<p>{{ description|localizedValue(lang, 'ServiceUserInstruction')|nl2br }}</p>
-{% endfor %}
+{{ service.descriptions|localizedValue(lang, 'ServiceUserInstruction')|nl2p|raw }}
 {% endif %}
 {% endspaceless %}
