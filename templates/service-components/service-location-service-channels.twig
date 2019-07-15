@@ -1,6 +1,6 @@
 {% if serviceLocationChannels %}
-<h3>Toimipisteet</h3>
+<h2>Toimipisteet</h2>
 {% for serviceLocationChannel in serviceLocationChannels %}
-<h4><a href="{{ serviceLocationChannel.id|serviceLocationPath(serviceId) }}">{{ serviceLocationChannel.names|localizedValue(lang) }}</a></h4>
+<div class="service-location-channel-link"><a href="{{ serviceLocationChannel.id|serviceLocationPath(serviceId) }}">{{ serviceLocationChannel.names|localizedValue(lang) }}</a></div>
 {% endfor %}  
 {% endif %}
