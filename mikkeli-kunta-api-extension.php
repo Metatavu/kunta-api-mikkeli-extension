@@ -3,7 +3,7 @@
  * Created on May 11, 2017
  * Plugin Name: Kunta API Mikkeli extensions
  * Description: Kunta API extensions for Mikkeli
- * Version: 0.13
+ * Version: 0.15
  * Author: Metatavu Oy
  */
   defined ( 'ABSPATH' ) || die ( 'No script kiddies please!' );
