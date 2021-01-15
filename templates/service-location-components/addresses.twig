@@ -1,0 +1,46 @@
+{% if serviceLocationChannel.addresses %}
+{% for address in serviceLocationChannel.addresses %}
+  {% spaceless %}
+    {% if address.type == "Visiting" or address.type == "Location" %}
+      <h4>Käyntiosoite</h4>
+    {% elseif address.type == "Postal" %}
+      <h4>Postiosoite</h4>
+    {% endif %}
+    
+    {% if address.streetAddress %}
+      {{ address.streetAddress|localizedValue(lang) }} {{ address.streetNumber }}
+    {% endif %}
+    {% if address.streetAddress and (address.postalCode or address.postOffice or address.postOfficeBox) %}
+      <br/>
+    {% endif %}
+    {% if address.postalCode or address.postOffice or address.postOfficeBox %}
+      {% if address.postOfficeBox %}
+        <span>{{ address.postOfficeBox|localizedValue(lang) }}</span>
+      {% endif %}
+
+      {% if address.postalCode or address.postOffice %}
+        <span>,&nbsp;</span>
+      {% endif %}
+
+      {% if address.postalCode %}
+        <span>{{ address.postalCode }}</span>
+      {% endif %}
+      
+      {% if address.postalCode and address.postOffice %}
+        <span>&nbsp;</span>
+      {% endif %}
+      
+      {% if address.postOffice %}
+        <span>{{ address.postOffice|localizedValue(lang) }}</span>
+      {% endif %}
+      
+    {% elseif address.locationAbroad %}
+      <span>{{ address.locationAbroad|localizedValue(lang) }}</span>
+    {% endif %}
+  
+    {% if address.additionalInformations %}
+      <p>{{ address.additionalInformations|localizedValue(lang)|nl2p|raw }}</p>
+    {% endif %}
+  {% endspaceless %}
+{% endfor %}
+{% endif %}
