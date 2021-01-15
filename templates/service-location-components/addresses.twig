@@ -18,7 +18,7 @@
         <span>{{ address.postOfficeBox|localizedValue(lang) }}</span>
       {% endif %}
 
-      {% if address.postalCode or address.postOffice %}
+      {% if address.postOfficeBox and (address.postalCode or address.postOffice) %}
         <span>,&nbsp;</span>
       {% endif %}
 
